@@ -246,8 +246,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176320890}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.82}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 359762087}
@@ -278,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359762086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 176320891}
@@ -302,13 +302,13 @@ MonoBehaviour:
   TwoDDistanceCheck: 0
   TwoDPositionInfluence: 0
   TwoDRotationInfluence: 0
-  EnablePositionEffect: 1
+  EnablePositionEffect: 0
   EnableRotationEffect: 1
   GlobalReactionUpVector: 0
-  TranslationLockSpace: 0
+  TranslationLockSpace: 1
   LockTranslationX: 0
-  LockTranslationY: 0
-  LockTranslationZ: 0
+  LockTranslationY: 1
+  LockTranslationZ: 1
   Params:
     InstanceID: -1
     Bits:
@@ -317,8 +317,8 @@ MonoBehaviour:
     PositionParameterMode: 1
     RotationParameterMode: 1
     PositionExponentialHalfLife: 0.02
-    PositionOscillationHalfLife: 0.1
-    PositionOscillationFrequency: 5
+    PositionOscillationHalfLife: 0.01
+    PositionOscillationFrequency: 10
     PositionOscillationDampingRatio: 0.5
     MoveReactionMultiplier: 1
     LinearImpulseMultiplier: 1
@@ -329,13 +329,14 @@ MonoBehaviour:
     RotationReactionMultiplier: 1
     AngularImpulseMultiplier: 1
     RotationReactionUp: {x: 0, y: 0, z: 0}
-  SharedParams: {fileID: 11400000, guid: ecadbb2426a15c64a89703679bf77687, type: 2}
+  SharedParams: {fileID: 0}
   BoneChains:
   - Root: {fileID: 176320891}
-    Exclusion: []
+    Exclusion:
+    - {fileID: 0}
     EffectorReaction: 1
     LooseRoot: 0
-    ParamsOverride: {fileID: 11400000, guid: ecadbb2426a15c64a89703679bf77687, type: 2}
+    ParamsOverride: {fileID: 0}
     AnimationBlendCurveType: 4
     AnimationBlendCustomCurve:
       serializedVersion: 2
@@ -411,7 +412,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    MaxBendAngleCap: 180
+    MaxBendAngleCap: 30
     BendAngleCapCurveType: 0
     BendAngleCapCustomCurve:
       serializedVersion: 2
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boingBones: {fileID: 359762088}
-  stackPrefab: {fileID: 694769014813796177, guid: f5a0a4d7cdf8a4e31938a3ba4b944cd9, type: 3}
+  stackPrefab: {fileID: 4462099647190866343, guid: a03817bd8c61c4b8198d12ffca5424b1, type: 3}
   boingParent: {fileID: 176320890}
 --- !u!4 &611963053
 Transform:

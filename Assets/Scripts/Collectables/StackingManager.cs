@@ -16,9 +16,9 @@ public class StackingManager : MonoBehaviour
 
 
         boingBones.enabled = false;
-        GameObject temp = Instantiate(stackPrefab, Vector3.zero, Quaternion.identity,
+        GameObject temp = Instantiate(stackPrefab, Vector3.zero, Quaternion.Euler(90,0,0),
             GetLastChildRecursive(boingParent.transform));
-        temp.transform.localPosition = new Vector3(0, 1f, 0);
+        temp.transform.localPosition = new Vector3(0, 0.4f, 0);
         boingBones.enabled = true;
     }
     

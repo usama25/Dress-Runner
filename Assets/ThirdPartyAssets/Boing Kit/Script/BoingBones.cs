@@ -536,12 +536,15 @@ namespace BoingKit
           //   ++iChildIndex;
           // if (iChildIndex >= parentBone.ChildIndices.Length)
           //   continue;
+          
+          
           parentBone.ChildIndices[iChildIndex] = iBone;
         }
 
         if (aBone.Count == 0)
           continue;
-
+ 
+        
         // this is only for getting debug draw in editor mode
         // float maxLenFromRootInv = MathUtil.InvSafe(chain.MaxLengthFromRoot);
         // foreach (var bone in aBone)

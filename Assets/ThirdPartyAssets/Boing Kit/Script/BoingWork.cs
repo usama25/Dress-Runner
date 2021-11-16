@@ -497,6 +497,9 @@ namespace BoingKit
                   if (iChild < 0)
                     continue;
 
+                  if (iChild >= aBone.Length)
+                    break;
+                  
                   var childBone = aBone[iChild];
 
                   Vector3 childPos = childBone.CachedPositionWs;
@@ -545,7 +548,7 @@ namespace BoingKit
 
               bone.Transform.position = ComputeTranslationalResults(bone.Transform, bone.Transform.position, bone.BlendedPositionWs, bones);
               bone.Transform.rotation = bone.BlendedRotationWs;
-              bone.Transform.localScale = bone.BlendedScaleLs;
+              // bone.Transform.localScale = bone.BlendedScaleLs;
             }
           }
         }
