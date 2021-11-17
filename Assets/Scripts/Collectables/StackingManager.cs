@@ -25,6 +25,9 @@ public class StackingManager : MonoBehaviour
     
     
     Transform GetLastChildRecursive(Transform parent) => parent.childCount == 0 ? parent : GetLastChildRecursive(parent.GetChild(0));
+    
+    
+    
 }
     
     
