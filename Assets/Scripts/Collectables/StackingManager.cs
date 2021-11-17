@@ -48,7 +48,10 @@ public class StackingManager : MonoBehaviour
     {
         Transform topPieceMesh = null;
         if (stackList.Count <= 0)
-           return;
+        {
+            GameManager.Instance.gameState = GameState.Complete;
+            return;
+        }
 
         topPieceMesh = stackList[stackList.Count - 1];
         

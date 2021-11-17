@@ -55,11 +55,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (GameManager.Instance.gameState != GameState.Running)
         {
             return;
         }
+
+       
 
         HorizontalMovement(transform,20);
         ForwardMovement();
@@ -209,4 +211,21 @@ public class PlayerMovement : MonoBehaviour
         girl.GetComponent<DOTweenAnimation>().DORestart();
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            speed = 30;
+            GameManager.Instance.GameWin();
+            girl.GetComponent<Animator>().SetTrigger("win");
+
+        }
+
+        if (other.CompareTag("cheese"))
+        {
+            StackingManager.Instance.RemoveFromStack();
+           
+        }
+    }
 }
