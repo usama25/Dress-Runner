@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using DG.Tweening;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -45,14 +46,20 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 forward;
     private RaycastHit hitInfo,sideRayInfo;
     private bool grounded;
-     
-
 
  
+    public Transform girl;
+    public GameObject upgradeParticles;
+  
 
     // Update is called once per frame
     void Update()
     {
+
+        if (GameManager.Instance.gameState != GameState.Running)
+        {
+            return;
+        }
 
         HorizontalMovement(transform,20);
         ForwardMovement();
@@ -132,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
     void ForwardMovement()
     {
         pathFollower.enabled = true;
+        girl.GetComponent<Animator>().SetTrigger("run");
         DOTween.To(() => pathFollower.speed, x => pathFollower.speed = x, speed, 1f);
     }
 
@@ -194,32 +202,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void UpgradeGirl()
     {
-        if (other.CompareTag("finalmomentum"))
-        {
-            StartCoroutine(ScoreUpdater());
-        }
+        upgradeParticles.transform.position = girl.transform.position;
+        upgradeParticles.GetComponent<ParticleSystem>().Play();
+        girl.GetComponent<DOTweenAnimation>().DORestart();
     }
-    
-    private IEnumerator ScoreUpdater()
-    {
-        
-       
-        var duration = 0;
-        var displayScore = 0;
-        var amount = 0;
-        while(true)
-        {
-            if(displayScore > amount)
-            {
-                displayScore --;
-               
-            }
-            
 
-            yield return new WaitForSeconds(duration); 
-        }
-
-    }
 }
