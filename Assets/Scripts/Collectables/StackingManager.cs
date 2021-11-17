@@ -12,7 +12,7 @@ public class StackingManager : MonoBehaviour
     public GameObject stackPrefab,
                       boingParent;
 
-    public GameObject addParticles, removeParticles;
+    public GameObject addParticles, removeParticles, _cam;
 
     private List<Transform> stackList = new List<Transform>();
     
@@ -58,7 +58,7 @@ public class StackingManager : MonoBehaviour
         topPieceMesh.gameObject.SetActive(false);
         removeParticles.transform.DOMoveY(topPieceMesh.transform.position.y, 0f);
         removeParticles.GetComponent<ParticleSystem>().Play();
-
+        _cam.transform.DOShakeRotation(0.5f,1f,6,3);
         boingBones.RemoveBonesAfterTransformBone(topPieceMesh.transform.parent);
         boingBones.RescanBoneChains();
 
